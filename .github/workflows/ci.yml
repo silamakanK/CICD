@@ -30,4 +30,11 @@ jobs:
                 export APP_ENV=test
                 composer install --prefer-dist --no-interaction --no-progress
             - name: "Check Database healthy"
-              run: nc -vz 127.0.0.1 3306
+              run: nc -vz 127.0.0.1 3306 #netcad 
+            - name: "Start migrations"
+              run: php bin/console d:m:m
+              env:
+                DATABASE_HOST: '127.0.0.1'
+                DATABASE_NAME: 'app'
+                DATABASE_PASSWORD: 'password'
+                APP_ENV: test
