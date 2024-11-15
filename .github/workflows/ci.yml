@@ -9,6 +9,13 @@ jobs:
     deps:
         name: "install dependancies"
         runs-on: "ubuntu-latest"
+        # services:
+        #     database:
+        #         image: mysql
+        #         env:
+        #             MYSQL_ROOT_PASSWORD: password
+        #             MYSQL_DATABASE: app
+        #             MYSQL_ROOT_HOST: "%"
         steps:
             - uses: actions/checkout@v4
             - name: Setup PHP with PECL extension
@@ -20,3 +27,5 @@ jobs:
               run: |
                 export APP_ENV=test
                 composer install --prefer-dist --no-interaction --no-progress
+            # - name: "Check Database healthy"
+            #   run: nc -vz mysql 3306
