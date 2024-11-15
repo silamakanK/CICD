@@ -10,5 +10,14 @@ jobs:
         name: "install dependancies"
         runs-on: "ubuntu-latest"
         steps:
-            - uses: actions/checkout@v4
-            - run: ls
+            - name: "Checkout"
+              uses: actions/checkout@v4
+            #   run: ls
+
+            -  name: "Installation php"
+               uses: shivammathur/setup-php@v2
+
+            - name: "Installation composer"
+              run: |
+                composer install
+                composer --version
