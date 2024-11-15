@@ -17,4 +17,4 @@ jobs:
                   php-version: '8.1'
                   tools: composer
             - name: "Installation php deps"
-              run: composer install --prefer-dist -no-interaction --no-progress
+              run: composer install --prefer-dist --no-interaction --no-progress
