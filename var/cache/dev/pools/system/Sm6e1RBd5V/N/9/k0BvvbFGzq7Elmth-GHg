@@ -1,0 +1,328 @@
+<?php //resource_metadata_collection_25a8d5346f7867159d709b3ff80da8f8
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Metadata\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\ApiResource')),
+        clone ($p['ApiPlatform\\Metadata\\Operations'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Operations')),
+        clone ($p['ApiPlatform\\Metadata\\Get'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Get')),
+        clone ($p['ApiPlatform\\Metadata\\Link'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Link')),
+        clone ($p['ApiPlatform\\Metadata\\GetCollection'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GetCollection')),
+        clone ($p['ApiPlatform\\Metadata\\Post'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Post')),
+        clone ($p['ApiPlatform\\Metadata\\Put'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Put')),
+        clone $p['ApiPlatform\\Metadata\\Link'],
+        clone $p['ApiPlatform\\Metadata\\Link'],
+    ],
+    null,
+    [
+        'ApiPlatform\\Metadata\\ApiResource' => [
+            'operations' => [
+                $o[1],
+            ],
+            'shortName' => [
+                'Task',
+            ],
+            'uriVariables' => [
+                [
+                    'id' => $o[8],
+                ],
+            ],
+            'class' => [
+                'App\\Entity\\Task',
+            ],
+            'normalizationContext' => [
+                [
+                    'groups' => [
+                        'task:read',
+                    ],
+                ],
+            ],
+            'denormalizationContext' => [
+                [
+                    'groups' => [
+                        'task:write',
+                    ],
+                ],
+            ],
+            'paginationEnabled' => [
+                false,
+            ],
+            'graphQlOperations' => [
+                [],
+            ],
+            'extraProperties' => [
+                [],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operations' => [
+            'operations' => [
+                1 => [
+                    [
+                        '_api_/tasks/{id}.{_format}_get',
+                        $o[2],
+                    ],
+                    [
+                        '_api_/tasks.{_format}_get_collection',
+                        $o[4],
+                    ],
+                    [
+                        '_api_/tasks.{_format}_post',
+                        $o[5],
+                    ],
+                    [
+                        '_api_/tasks/{id}.{_format}_put',
+                        $o[6],
+                    ],
+                ],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operation' => [
+            'shortName' => [
+                2 => 'Task',
+                4 => 'Task',
+                'Task',
+                'Task',
+            ],
+            'class' => [
+                2 => 'App\\Entity\\Task',
+                4 => 'App\\Entity\\Task',
+                'App\\Entity\\Task',
+                'App\\Entity\\Task',
+            ],
+            'paginationEnabled' => [
+                2 => false,
+                4 => false,
+                false,
+                false,
+            ],
+            'normalizationContext' => [
+                2 => [
+                    'groups' => [
+                        'task:read',
+                    ],
+                ],
+                4 => [
+                    'groups' => [
+                        'task:read',
+                    ],
+                ],
+                [
+                    'groups' => [
+                        'task:read',
+                    ],
+                ],
+                [
+                    'groups' => [
+                        'task:read',
+                    ],
+                ],
+            ],
+            'denormalizationContext' => [
+                2 => [
+                    'groups' => [
+                        'task:write',
+                    ],
+                ],
+                4 => [
+                    'groups' => [
+                        'task:write',
+                    ],
+                ],
+                [
+                    'groups' => [
+                        'task:write',
+                    ],
+                ],
+                [
+                    'groups' => [
+                        'task:write',
+                    ],
+                ],
+            ],
+            'filters' => [
+                2 => [
+                    'annotated_app_entity_task_api_platform_doctrine_orm_filter_search_filter',
+                    'annotated_app_entity_task_app_api_filter_task_expiration_filter',
+                ],
+                4 => [
+                    'annotated_app_entity_task_api_platform_doctrine_orm_filter_search_filter',
+                    'annotated_app_entity_task_app_api_filter_task_expiration_filter',
+                ],
+                [
+                    'annotated_app_entity_task_api_platform_doctrine_orm_filter_search_filter',
+                    'annotated_app_entity_task_app_api_filter_task_expiration_filter',
+                ],
+                [
+                    'annotated_app_entity_task_api_platform_doctrine_orm_filter_search_filter',
+                    'annotated_app_entity_task_app_api_filter_task_expiration_filter',
+                ],
+            ],
+            'output' => [
+                2 => [
+                    'class' => null,
+                ],
+            ],
+            'read' => [
+                2 => false,
+            ],
+            'priority' => [
+                2 => 0,
+                4 => 1,
+                2,
+                3,
+            ],
+            'name' => [
+                2 => '_api_/tasks/{id}.{_format}_get',
+                4 => '_api_/tasks.{_format}_get_collection',
+                '_api_/tasks.{_format}_post',
+                '_api_/tasks/{id}.{_format}_put',
+            ],
+            'provider' => [
+                2 => 'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+                4 => 'ApiPlatform\\Doctrine\\Orm\\State\\CollectionProvider',
+                'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+                'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+            ],
+            'processor' => [
+                2 => 'api_platform.doctrine.orm.state.persist_processor',
+                4 => 'api_platform.doctrine.orm.state.persist_processor',
+                'api_platform.doctrine.orm.state.persist_processor',
+                'api_platform.doctrine.orm.state.persist_processor',
+            ],
+            'extraProperties' => [
+                2 => [],
+                4 => [],
+                [],
+                [],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\HttpOperation' => [
+            'method' => [
+                2 => 'GET',
+                4 => 'GET',
+                'POST',
+                'PUT',
+            ],
+            'uriTemplate' => [
+                2 => '/tasks/{id}.{_format}',
+                4 => '/tasks.{_format}',
+                '/tasks.{_format}',
+                '/tasks/{id}.{_format}',
+            ],
+            'inputFormats' => [
+                2 => [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                4 => [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+            ],
+            'outputFormats' => [
+                2 => [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                4 => [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+                [
+                    'json' => [
+                        'application/json',
+                    ],
+                    'html' => [
+                        'text/html',
+                    ],
+                ],
+            ],
+            'uriVariables' => [
+                2 => [
+                    'id' => $o[3],
+                ],
+                5 => [],
+                [
+                    'id' => $o[7],
+                ],
+            ],
+            'status' => [
+                2 => 204,
+            ],
+            'controller' => [
+                2 => 'ApiPlatform\\Action\\NotFoundAction',
+                5 => 'App\\Controller\\CreateTaskController',
+                'App\\Controller\\UpdateTaskController',
+            ],
+            'openapi' => [
+                2 => false,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Link' => [
+            'parameterName' => [
+                3 => 'id',
+                7 => 'id',
+                'id',
+            ],
+            'fromClass' => [
+                3 => 'App\\Entity\\Task',
+                7 => 'App\\Entity\\Task',
+                'App\\Entity\\Task',
+            ],
+            'identifiers' => [
+                3 => [
+                    'id',
+                ],
+                7 => [
+                    'id',
+                ],
+                [
+                    'id',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+); }];
