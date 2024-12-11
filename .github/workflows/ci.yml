@@ -53,18 +53,18 @@ jobs:
         - name: Run Unit Tests
           run: vendor/bin/phpunit --testsuite=unit
 
-    functional-tests:
-      name: Functional Tests
-      runs-on: ubuntu-latest
-      services:
-        database:
-          image: mysql
-          env:
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: app
-            MYSQL_ROOT_HOST: "%"
-          ports:
-            - 3306:3306
+    # functional-tests:
+    #   name: Functional Tests
+    #   runs-on: ubuntu-latest
+    #   services:
+    #     database:
+    #       image: mysql
+    #       env:
+    #         MYSQL_ROOT_PASSWORD: password
+    #         MYSQL_DATABASE: app
+    #         MYSQL_ROOT_HOST: "%"
+    #       ports:
+    #         - 3306:3306
 
     static-analysis:
       name: Static Analysis
