@@ -52,3 +52,18 @@ jobs:
           run: composer install
         - name: Run Unit Tests
           run: vendor/bin/phpunit --testsuite=unit
+
+    static-analysis:
+      name: Static Analysis
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '8.1'
+            tools: composer
+        - name: Install Dependencies
+          run: composer install
+        - name: Run PHPStan
+          run: vendor/bin/phpstan analyse src --level=max
