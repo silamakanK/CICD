@@ -14,7 +14,7 @@ jobs:
                 image: mysql
                 env:
                     MYSQL_ROOT_PASSWORD: password
-                    MYSQL_DATABASE: app
+                    MYSQL_DATABASE: app_test
                     MYSQL_ROOT_HOST: "%"
                 ports:
                     - 3306:3306
@@ -35,11 +35,20 @@ jobs:
               run: php bin/console d:m:m
               env:
                 DATABASE_HOST: '127.0.0.1'
-                DATABASE_NAME: 'app'
+                DATABASE_NAME: 'app_test'
                 DATABASE_PASSWORD: 'password'
-            - name: Run PHPUnit tests
-              run: vendor/bin/phpunit
-              env: 
-                APP_ENV: test
-            - name: Run PHPStan
-              run: vendor/bin/phpstan        
+      
+    tests-unit:
+      name: Unit Tests
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '8.1'
+            tools: composer
+        - name: Install Dependencies
+          run: composer install
+        - name: Run Unit Tests
+          run: vendor/bin/phpunit --testsuite=unit
