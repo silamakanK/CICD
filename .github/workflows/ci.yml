@@ -37,63 +37,13 @@ jobs:
                 DATABASE_HOST: '127.0.0.1'
                 DATABASE_NAME: 'app'
                 DATABASE_PASSWORD: 'password'
-      
-    tests-unit:
-      name: Unit Tests
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Setup PHP[░░░░░░░░░░░░░░░░░░░░░░░░░░░░]
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: '8.1'
-            tools: composer
-        - name: Install Dependencies
-          run: composer install
-        - name: Run Unit Tests
-          run: vendor/bin/phpunit --testsuite=unit
-
-    static-analysis:
-      name: Static Analysis
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Setup PHP
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: '8.1'
-            tools: composer
-        - name: Install Dependencies
-          run: composer install
-        - name: Run PHPStan
-          run: vendor/bin/phpstan analyse src --level=max
-
-    functional-tests:
-      name: Functional Tests
-      runs-on: ubuntu-latest
-      services:
-        database:
-          image: mysql
-          env:
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: app
-            MYSQL_ROOT_HOST: "%"
-          ports:
-            - 3306:3306
-      steps:
-        - uses: actions/checkout@v4
-        - name: Setup PHP
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: '8.1'
-            tools: composer
-        - name: Install Dependencies
-          run: composer install
-        - name: Ensure Database Connectivity
-          run: nc -vz 127.0.0.1 3306
-        - name: Run Functional Tests
-          run: vendor/bin/phpunit --testsuite=functional
-          env:
-            DATABASE_HOST: '127.0.0.1'
-            DATABASE_NAME: 'app'
-            DATABASE_PASSWORD: 'password'
+            - name: Install Dependencies
+              run: composer install
+            - name: Run Cs-fixer
+              run: php-cs-fixer check src --diff
+            - name: Run Unit Tests
+              run: php bin/phpunit tests/_1_Unit
+            - name: Fonctional Tests
+              run: php bin/phpunit tests/_3_Application
+            - name: Run PHPStan
+              run: php bin/phpstan analyse src --level=max
