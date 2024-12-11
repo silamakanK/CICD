@@ -14,7 +14,7 @@ jobs:
                 image: mysql
                 env:
                     MYSQL_ROOT_PASSWORD: password
-                    MYSQL_DATABASE: app_test
+                    MYSQL_DATABASE: app
                     MYSQL_ROOT_HOST: "%"
                 ports:
                     - 3306:3306
@@ -35,7 +35,7 @@ jobs:
               run: php bin/console d:m:m
               env:
                 DATABASE_HOST: '127.0.0.1'
-                DATABASE_NAME: 'app_test'
+                DATABASE_NAME: 'app'
                 DATABASE_PASSWORD: 'password'
       
     tests-unit:
@@ -43,7 +43,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
-        - name: Setup PHP
+        - name: Setup PHP[░░░░░░░░░░░░░░░░░░░░░░░░░░░░]
           uses: shivammathur/setup-php@v2
           with:
             php-version: '8.1'
@@ -52,6 +52,19 @@ jobs:
           run: composer install
         - name: Run Unit Tests
           run: vendor/bin/phpunit --testsuite=unit
+
+    functional-tests:
+      name: Functional Tests
+      runs-on: ubuntu-latest
+      services:
+        database:
+          image: mysql
+          env:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: app
+            MYSQL_ROOT_HOST: "%"
+          ports:
+            - 3306:3306
 
     static-analysis:
       name: Static Analysis
