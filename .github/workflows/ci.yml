@@ -9,15 +9,6 @@ jobs:
     deps:
         name: "install dependancies"
         runs-on: "ubuntu-latest"
-        services:
-            database:
-                image: mysql
-                env:
-                    MYSQL_ROOT_PASSWORD: password
-                    MYSQL_DATABASE: app
-                    MYSQL_ROOT_HOST: "%"
-                ports:
-                    - 3306:3306
         steps:
             - uses: actions/checkout@v4
             - name: Setup PHP with PECL extension
@@ -41,9 +32,31 @@ jobs:
               run: composer install
             - name: Run Cs-fixer
               run: php-cs-fixer check src --diff
-            - name: Run Unit Tests
-              run: php bin/phpunit tests/_1_Unit
-            - name: Fonctional Tests
-              run: php bin/phpunit tests/_3_Application
             - name: Run PHPStan
               run: php bin/phpstan analyse src --level=max
+
+    unit-tests:
+      needs: ["deps"]
+      name: "Unit tests"
+      runs-on: "Ubuntu-latest"
+      steps:
+          - uses: actions/checkout@v4
+          - name: Run Unit Tests
+            run: php bin/phpunit tests/_1_Unit
+
+    fonctionnal-tests:
+      needs: ["deps"]
+      name: "Fonctional tests"
+      runs-on: "Ubuntu-latest"
+      services:
+            database:
+                image: mysql
+                env:
+                    MYSQL_ROOT_PASSWORD: password
+                    MYSQL_DATABASE: app
+                    MYSQL_ROOT_HOST: "%"
+                ports:
+                    - 3306:3306
+      steps:       
+        - name: Fonctional Tests
+          run: php bin/phpunit tests/_3_Application
